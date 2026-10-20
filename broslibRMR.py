@@ -9,8 +9,8 @@ from datetime import timedelta
 
 #sqlite3.register_converter("date", convert_date)
 
-startdayvalue = dt.date(2026,3,30)
-startdayvaluenextday = startdayvalue + timedelta(days=2)
+startdayvalue = dt.date(2026,10,20)
+startdayvaluenextday = startdayvalue + timedelta(days=1)
 startdayvaluestr = startdayvalue.strftime("%Y-%m-%d")
 startdayvaluenextdaystr = startdayvaluenextday.strftime("%Y-%m-%d")
 print("the current startdate is: ", startdayvaluestr)
@@ -37,17 +37,9 @@ cur1 = con.cursor()
 cur.execute("SELECT booknum, room, bcase, shelf, position, title, author FROM books")
 records = cur.fetchall()
 print("Total current books are:  ", len(records))
-#print("Printing each book")
-#for row in records:
-#print(row[0])
-#print(row[1])
-#print(row[2])
-#print(row[3])
-#print(row[4])
-#print(row[5])
-#print(row[6])
 
-rvar1 = random.randint(1, 5)
+
+rvar1 = random.randint(1, 15)
 rvar2 = (rvar1, )
 
 cur.execute("SELECT booknum, room, bcase, shelf, position, title, author FROM books WHERE booknum =?",  (rvar2))
